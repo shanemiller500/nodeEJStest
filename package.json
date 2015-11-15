@@ -1,0 +1,16 @@
+{
+  "name": "ejstest",
+  "version": "1.0.0",
+  "description": "A test using EJS & Node with Express",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shane Miller",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "instagram-node": "^0.5.8"
+  }
+}
