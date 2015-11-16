@@ -1,10 +1,9 @@
 /* global grams */
 // grab all packages for express
 var express = require('express');
-var app = express();
 var instagram = require('instagram-node').instagram();
 var Skiplagged = require('skiplagged');
-
+var app = express();
 
 
 app.use(express.static(__dirname + '/public'));
