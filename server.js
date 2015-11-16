@@ -1,7 +1,10 @@
+/* global grams */
 // grab all packages for express
 var express = require('express');
 var app = express();
 var instagram = require('instagram-node').instagram();
+var Skiplagged = require('skiplagged');
+
 
 
 app.use(express.static(__dirname + '/public'));
@@ -16,16 +19,33 @@ instagram.use({
 app.get('/', function (req, res) {
 
 	instagram.media_popular(function (err, medias, remaining, limit) {
-		res.render('Pages/index', { grams: medias, gram: limit })
+		res.render('Pages/index', { grams: medias })
+		console.log("Shane ", medias);
 	});
+});
 
+app.get('/twitterindex', function (req, res) {
+	res.render('pages/twitterIndex')
+	console.log("Shane ");
+});
+
+
+app.get('/skiplagged', function (req, res) {
+
+	var sl = new Skiplagged();
+	var test = sl.flights('ORD', 'JFK', '2016-01-24', '2016-01-26');
+	console.log("Here! " + test);
+	res.render('pages/skiplagged', {Skiplagged: test})
+	console.log('Here Shane');
 	
 });
 
+
+
 app.listen(8080, function (err) {
-		if (err) {
-			colsole.log("Error");
-		} else {
-			console.log("Listening on port 8080");
-		}
-	})
+	if (err) {
+		console.log("Error " + err);
+	} else {
+		console.log("Listening on port 8080");
+	}
+})

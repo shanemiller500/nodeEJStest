@@ -10,7 +10,7 @@
   <header>
     <% include ../Partials/header %>
   </header>
-
+<h1>Instergram NPM App</h1>
   <main>
     <div class="row">
       <% grams.forEach(function(grams) { %>
@@ -19,20 +19,31 @@
           <img src="<%= grams.images.standard_resolution.url %>" class="img-responsive" alt="instagram image">   
         </a>
         </div>
-        ul>li*6
+        <!--ul>li*6-->
 
 
         <div class="instagram-bar">
           <div class="likes">
             <span class="glyphicon-heart"></span>
+            LIKES:
             <%= grams.likes.count %>
-            <%= gram.link %>
+            
           </div>
         </div>
 
         <div class="comments">
           <span class="glyphicon-comment"></span>
-          <%=grams.comments.count %>
+           COMMENT COUNT: 
+          <%= grams.comments.count %>
+        </div>
+        
+         
+        <div class="comments">
+          <span class="glyphicon-comment"></span>
+          CAPTION TEXT: 
+          <%if (grams.caption.text != null) { %>
+          <%= grams.caption.text %>
+          <% } %>
         </div>
         <% }); %>
 
@@ -45,3 +56,5 @@
 </body>
 
 </html>
+
+
